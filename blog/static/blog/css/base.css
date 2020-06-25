@@ -21,6 +21,8 @@
       margin: 4em 0;
       text-align: center;
       padding-top: 30px;
+      height: 100px;
+      width: 75;
     }
     
     ul.blog-post {
@@ -31,9 +33,9 @@
     
     ul.blog-post li {
         display: inline-block;
-      border-radius: 3px;
+        border-radius: 3px;
         padding: 1.5em;
-      width: 400px;
+        width: 400px;
         margin: 0 0 2.5% 2.5%;
         background: #fff;
         border: 1px solid #eee;
@@ -48,7 +50,7 @@
     
     ul.blog-post li img {
         max-width: 100%;
-        height: auto;
+        height: 200px;
         margin: 0 0 10px;
     }
     
@@ -70,19 +72,6 @@
           font-weight: 300;
     }
     
-    .button {
-      text-align: center;
-      width: 20%;
-      border: none;
-      background: rgb(55, 102, 206);
-      font-family: Open Sans, sans-serif;
-      font-weight: 300;
-      font-size: 0.7em;
-      color: white;
-      border-radius: 5px;
-      padding: 8px 15px 8px 15px;
-    }
-    
     .button:hover {
       opacity: 0.9;
       cursor: pointer;
@@ -93,6 +82,12 @@
     }
      
     @media (max-width: 600px) {
+        .container {
+          margin: 4em 0;
+          text-align: center;
+          padding-top: 30px;
+          padding-right: 13%;
+        }
         ul.grid-nav li {
             display: block;
             margin: 0 0 5px;

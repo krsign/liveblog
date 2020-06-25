@@ -13,9 +13,9 @@
                 <a href="{% url 'post-detail' post.slug %}"><img src="https://edyoda.s3.amazonaws.com/media/blog-images/devops_tJSKVcn.jpg" />
                     {% endif %}</a>
                 
-                <h3>{{post.title|truncatechars:20}}</h3>
+                <h3>{{post.title|truncatechars:45}}</h3>
                 <hr>
-                <p>{{post.content|truncatewords:25}}</p>
+                <p>{{post.content|truncatechars:100}}</p>
             </li>
             {% endfor %}
             

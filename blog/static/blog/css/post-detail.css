@@ -1,46 +1,69 @@
 body{
-    background-color: #eee;
-    padding-left: 110px;
-    padding-right: 110px;
+    background-color: white;
+    padding-top: 50px;
 }
-
- .container{
-    text-align: justify;
- }
 
 .image-detail{
      width: 100%;
-     height: auto;
-     margin-bottom: 20px;  
+     height: 50%;
+     padding-left: 2%;
+     padding-right: 3%;
+     padding-top: 2%;
+     padding-bottom: 2%;
+     
  }
- h3{
-     ont-family: 'Barlow Condensed', sans-serif;
-     text-align: center;
- }
- p{
-     font-family: 'Barlow Condensed', sans-serif;
+ .update-delete{
+    padding-left: 42%;
+    padding-right: 10%;
+}
+ #title{
+    text-align: center;
+}
+.content{
+    padding-left: 5%;
+    padding-right: 5%;
+    
+}
+ .container-fluid{
+    padding-left: 5%;
+    padding-right: 5%;
  }
 .col-sm-6{
     text-align: justify;
+    
 }
 #left{
     text-align: left;
+    
 }
 
 @media only screen and (max-width: 600px){
-    
     body{
-        
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-top: 50px;
     }
-    .container{
-        text-align: justify;
-     }
-     .image-detail{
-        text-align: justify;
+    .image-detail{
         width: 100%;
         height: auto;
+        margin-bottom: 20px;  
+    }
+    
+    .update-delete{
+        padding-left: 30%;
+        padding-right: 10%;
+    }
+    #title{
+        text-align: left;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .content{
+        padding-left: 10%;
+        padding-right: 10%;
+        
+    }
+    .container-fluid{
+        padding-left: 5%;
+        padding-right: 5%;
      }
 }
 
