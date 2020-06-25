@@ -1,0 +1,46 @@
+body{
+    background-color: #eee;
+    padding-left: 110px;
+    padding-right: 110px;
+}
+
+ .container{
+    text-align: justify;
+ }
+
+.image-detail{
+     width: 100%;
+     height: auto;
+     margin-bottom: 20px;  
+ }
+ h3{
+     ont-family: 'Barlow Condensed', sans-serif;
+     text-align: center;
+ }
+ p{
+     font-family: 'Barlow Condensed', sans-serif;
+ }
+.col-sm-6{
+    text-align: justify;
+}
+#left{
+    text-align: left;
+}
+
+@media only screen and (max-width: 600px){
+    
+    body{
+        
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .container{
+        text-align: justify;
+     }
+     .image-detail{
+        text-align: justify;
+        width: 100%;
+        height: auto;
+     }
+}
+

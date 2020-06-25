@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+    <div class="container">
+        <ul class="blog-post columns-2">
+            {% for post in posts%}
+            <li>
+                {% if post.image %}
+                <a href="{% url 'post-detail' post.slug %}"><img src="{{ post.image.url }}" alt="" /></a>
+                
+                {% else %}
+                <a href="{% url 'post-detail' post.slug %}"><img src="https://edyoda.s3.amazonaws.com/media/blog-images/devops_tJSKVcn.jpg" />
+                    {% endif %}</a>
+                
+                <h3>{{post.title|truncatechars:20}}</h3>
+                <hr>
+                <p>{{post.content|truncatewords:25}}</p>
+            </li>
+            {% endfor %}
+            
+        </ul>
+    </div>
+{% endblock %}

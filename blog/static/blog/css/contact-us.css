@@ -1,0 +1,13 @@
+body{
+    background-color: #eee;
+}
+.col-sm-6{
+    background-color: white;
+}
+#aboutside{
+    background-color: floralwhite;
+}
+#contactside{
+    background-color: cornsilk;
+    padding-bottom: 20px;
+}

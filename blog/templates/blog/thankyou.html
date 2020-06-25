@@ -1,0 +1,16 @@
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'blog/css/thankyou.css' %}">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400i' rel='stylesheet' type='text/css'>
+{% endblock %}
+
+{% block content %}
+
+    <div id="thankyou">
+        <h2 id="h2thankyou">Thank You</h2>
+    </div>
+    <div><a id="linkback" href="{% url 'home' %}">Explore More Blogs!!</a></div>
+    </body>
+
+{% endblock %}

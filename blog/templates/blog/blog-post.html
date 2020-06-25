@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block extra_head %}
+    <link rel="stylesheet" href="{% static 'blog/css/post-detail.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+    <div >
+        {% if post.image %}
+            <img src="{{ post.image.url }}" class="image-detail" alt="" />
+        {% else %}
+            <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" class="image-detail" alt="">
+        {% endif %}
+        <a href="{% url 'update' post.slug %}"><button type="button" class="btn btn-outline-success">update</button></a>
+        <a href="{% url 'delete' post.slug %}"><button type="button" class="btn btn-outline-danger">delete</button></a>
+        <hr>
+        <h2>{{post.title}}</h2>
+        <p style='font-family: Verdana, Geneva, Tahoma, sans-serif;'>{{post.content}}</p>
+        <br>
+        <br>
+        <hr>
+        <div class="container-fluid">    
+            <div class="row">
+                <div class="col-sm-6" id="left">
+                    <img src="https://github.githubassets.com/images/modules/open_graph/github-mark.png" class="rounded-circle" alt="Cinque Terre" width="55" height="55">
+                    <p style="font-family: monospace;">{{post.author}}</p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, unde corporis nostrum reprehenderit magnam porro nesciunt alias? Unde optio, qui enim laudantium hic fugiat officia sapiente autem tempora doloribus perferendis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>        
+{% endblock %}
