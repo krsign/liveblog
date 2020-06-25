@@ -10,6 +10,19 @@ from django.urls import reverse, reverse_lazy
 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 
+class CategoryList(View):
+
+    def get(self, request, id=None):
+        posts = Post.objects.filter(status='P')
+        if id:
+            cat = Category.objects.get(id=id)
+            posts = Post.objects.filter(category = cat)
+            return render(request, 'blog/stories.html',context={'posts':posts, 'categories':Category.objects.all()})
+        categories = Category.objects.all()
+        context = {'posts':posts, 'categories':categories}
+        return render(request, 'blog/stories.html',context )
+
+
 class PostListView(generic.ListView):
     model = Post
     queryset = Post.objects.filter(status='P')

@@ -1,8 +1,9 @@
 from django.urls import path,include
 from blog.views import  contact_us_form_view
-from blog.views import  PostCreateView, PostListView, PostDetailView, PostUpdateView, PostDeleteView
+from blog.views import  CategoryList, PostCreateView, PostListView, PostDetailView, PostUpdateView, PostDeleteView
 
 urlpatterns = [
+    path('category/<int:id>', CategoryList.as_view(), name='filter'),
     path('',PostListView.as_view(), name='home'),
     path('blog/<slug:slug>',PostDetailView.as_view(), name='post-detail'), 
 

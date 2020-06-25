@@ -3,6 +3,12 @@
 {% block content %}
 
     <div class="container">
+        <div class="categories">
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-info">All</button></a>
+            {% for cat in categories %}
+                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-info">{{cat.name}}</button></a>
+            {% endfor %}
+        </div>
         <ul class="blog-post columns-2">
             {% for post in posts%}
             <li>
@@ -12,7 +18,6 @@
                 {% else %}
                 <a href="{% url 'post-detail' post.slug %}"><img src="https://edyoda.s3.amazonaws.com/media/blog-images/devops_tJSKVcn.jpg" />
                     {% endif %}</a>
-                
                 <h3>{{post.title|truncatechars:45}}</h3>
                 <hr>
                 <p>{{post.content|truncatechars:100}}</p>

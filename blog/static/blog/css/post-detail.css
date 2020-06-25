@@ -22,7 +22,7 @@ body{
 .content{
     padding-left: 5%;
     padding-right: 5%;
-    
+    text-align: justify;
 }
  .container-fluid{
     padding-left: 5%;
