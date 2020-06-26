@@ -29,9 +29,14 @@
                     </li> 
                 </ul>
                 <a class="navbar-brand" href="#">
-                    {{user.get_username}}
-                    <img src="https://i.pinimg.com/originals/0e/20/8c/0e208c06304c5eb1b14979ef48bf2d36.png" width="30" height="30" class="rounded-circle" alt="">
-                    
+                    <a href="{% url 'profile' %}">
+                        {{user.get_username}}
+                    </a>
+                    {% if user.image %}
+                    <img src="{{user.pic.url}}" width="30" height="30" class="rounded-circle" alt="">
+                    {% else %}
+                    <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="30" height="30" class="rounded-circle" alt="">
+                    {% endif %}
                 </a>
                 <a class="nav-link disabled" href="{% url 'logout' %}"><button type="button" class="btn btn-outline-dark">Logout</button></a>
                 

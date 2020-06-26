@@ -29,11 +29,16 @@
         <div class="container-fluid">    
             <div class="row">
                 <div class="col-sm-6" id="left">
-                    <img src="https://github.githubassets.com/images/modules/open_graph/github-mark.png" class="rounded-circle" alt="Cinque Terre" width="55" height="45">
+
+                    {% if user.image %}
+                    <img src="{{user.pic.url}}" width="40" height="40" class="rounded-circle" alt="">
+                    {% else %}
+                    <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="50" height="50" class="rounded-circle" alt="">
+                    {% endif %}
                     <strong><h6>{{post.author}}</h6></strong>
                 </div>
                 <div class="col-sm-6">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, unde corporis nostrum reprehenderit magnam porro nesciunt alias? Unde optio, qui enim laudantium hic fugiat officia sapiente autem tempora doloribus perferendis.</p>
+                    <p>{{user.bio}}</p>
                 </div>
             </div>
         </div>

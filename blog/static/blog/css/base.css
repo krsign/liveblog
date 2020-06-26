@@ -20,6 +20,7 @@
     .container {
       margin: 4em 0;
       text-align: center;
+      padding-left: 8%;
       padding-top: 30px;
       height: 100px;
       width: 75;
@@ -91,7 +92,9 @@
           margin: 4em 0;
           text-align: center;
           padding-top: 30px;
+          padding-left: 5%;
           padding-right: 13%;
+
         }
         ul.grid-nav li {
             display: block;

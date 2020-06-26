@@ -1,0 +1,78 @@
+{% extends 'blog/base.html' %}
+{% block extra_head %}
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
+  body{
+    background-color: oldlace;
+  }
+  .container{
+    font-family: 'Overpass', sans-serif;
+    padding-top: 10%;
+    
+  }
+  #aboutimage{
+    padding-top: 5%;
+  }
+  #aboutbio{
+    background-color: ghostwhite;
+    text-align: justify;
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-bottom: 5%;
+    margin-bottom: 1%;
+  }
+  .row{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  #editprofile{
+    margin-top: 5%;
+  }
+  @media (max-width: 600px) {
+    .container{
+      padding-top: 5%;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+    #aboutbio{
+      margin-top: 6%;
+      padding-top: 6%;
+      
+    }     
+}
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+<div class="container">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6" id="aboutimage">
+        {% if user.image %}
+        <img src="{{user.pic.url}}" class="rounded-circle" width="250" height="250" alt="">
+       
+        {% else %}
+        <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" class="rounded-circle" width="250"
+          height="250" alt="">
+          
+        {% endif %}
+      </div>
+      <div class="col-sm-6" id="aboutbio">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <h4>username: {{user.username}}</h4>
+            <hr>
+            <h4>emai: {{user.email}}</h4>
+            <hr>
+            <p>bio:{{user.bio}}</p>
+            <a href="{% url 'userupdate'  user.id %}"><button type="button"
+              class="btn btn-outline-dark" id="editprofile">Edit Profile</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}
+
