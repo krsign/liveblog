@@ -21,8 +21,10 @@
             {% for cat in categories %}
                 <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-outline-secondary btn-sm">{{cat.name}}</button></a>
             {% endfor %}
+          
         </div>
         <ul class="blog-post columns-2">
+            <hr>
             {% for post in posts%}
             <li>
                 {% if post.image %}
