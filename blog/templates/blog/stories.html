@@ -35,7 +35,7 @@
                     {% endif %}</a>
                 <h3>{{post.title|truncatechars:45}}</h3>
                 <hr>
-                <p>{{post.content|truncatechars:100}}</p>
+                <p>{{post.content|truncatechars_html:100|safe}}</p>
             </li>
             {% endfor %}
             

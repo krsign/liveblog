@@ -2,6 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth import get_user_model
+from ckeditor.fields import RichTextField
 
 
 # Create your models here.
@@ -17,7 +18,8 @@ class Post(models.Model):
     statuses = [('D', 'Draft'), ('P', 'Publish')]
 
     title = models.CharField(max_length=250)
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
+    # content = models.TextField()
     status = models.CharField(max_length=1 ,choices=statuses, default='D')
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='categories')
     image = models.ImageField(upload_to='blog/', blank=True)
