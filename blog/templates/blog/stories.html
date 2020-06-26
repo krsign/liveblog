@@ -1,12 +1,25 @@
 {% extends 'blog/base.html' %}
-
+{% block extra_head %}
+    <style>
+        .categories{
+            padding-left: 5%;
+            padding-right: 2%;
+        }
+        @media only screen and (max-width: 600px){
+            .categories{
+            padding-left: 7%;
+            
+            }
+        }
+    </style>
+{% endblock %}
 {% block content %}
 
     <div class="container">
         <div class="categories">
-            <a href="{% url 'home' %}"><button type="button" class="btn btn-info">All</button></a>
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm">All</button></a>
             {% for cat in categories %}
-                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-info">{{cat.name}}</button></a>
+                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-outline-secondary btn-sm">{{cat.name}}</button></a>
             {% endfor %}
         </div>
         <ul class="blog-post columns-2">

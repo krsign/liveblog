@@ -1,11 +1,13 @@
 body{
     background-color: #eee;
 }
-.col-sm-6{
-    background-color: white;
+.container{
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 10%;
 }
 #aboutside{
-    background-color: floralwhite;
+    background-color: snow;
 }
 #contactside{
     background-color: cornsilk;

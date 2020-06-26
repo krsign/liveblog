@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&display=swap');
 body{
     background-color: white;
     padding-top: 50px;
@@ -17,9 +18,11 @@ body{
     padding-right: 10%;
 }
  #title{
+    font-family: 'Krona One', sans-serif;
     text-align: center;
 }
 .content{
+    font-family: 'Krona One', sans-serif;
     padding-left: 5%;
     padding-right: 5%;
     text-align: justify;
@@ -29,6 +32,7 @@ body{
     padding-right: 5%;
  }
 .col-sm-6{
+    font-family: monospace;
     text-align: justify;
     
 }

@@ -19,34 +19,33 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        {% if user.is_authenticated %}
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'new-post' %}">Post<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'contact-us' %}">About <span class="sr-only">(current)</span></a>
-                </li> 
-            </ul>
-            <!-- <strong><p class="username" style="font-family: monospace;">welcome,{{user.get_username}}</p></strong> -->
-            <a class="navbar-brand" href="#">
-                <img src="https://i.pinimg.com/originals/0e/20/8c/0e208c06304c5eb1b14979ef48bf2d36.png" width="30" height="30" class="rounded-circle" alt="">
-            </a>
-            <a class="nav-link disabled" href="{% url 'logout' %}"><button type="button" class="btn btn-outline-dark">Logout</button></a>
-            
-        {% else %}
-            <!-- filler for login logout -->
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#"></a>
-                </li>
-            </ul>
-            <!-- ends here-->
-            <a href="{% url 'login' %}" class="text-dark">Login</a> 
-            <a class="nav-link disabled" href="{% url 'signup' %}"><button type="button" class="btn btn-outline-dark">SignUp</button></a>
-        {% endif %}
-
-            
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'new-post' %}">Post<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{% url 'contact-us' %}">About <span class="sr-only">(current)</span></a>
+                    </li> 
+                </ul>
+                <a class="navbar-brand" href="#">
+                    {{user.get_username}}
+                    <img src="https://i.pinimg.com/originals/0e/20/8c/0e208c06304c5eb1b14979ef48bf2d36.png" width="30" height="30" class="rounded-circle" alt="">
+                    
+                </a>
+                <a class="nav-link disabled" href="{% url 'logout' %}"><button type="button" class="btn btn-outline-dark">Logout</button></a>
+                
+            {% else %}
+                <!-- filler for login logout -->
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#"></a>
+                    </li>
+                </ul>
+                <!-- ends here-->
+                <a href="{% url 'login' %}" class="text-dark">Login</a> 
+                <a class="nav-link disabled" href="{% url 'signup' %}"><button type="button" class="btn btn-outline-dark">SignUp</button></a>
+            {% endif %}
         </div>
     </nav>
     {% block content %}
