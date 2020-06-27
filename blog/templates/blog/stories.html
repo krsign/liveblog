@@ -17,9 +17,9 @@
 
     <div class="container">
         <div class="categories">
-            <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm">All</button></a>
+            <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm-1">All</button></a>
             {% for cat in categories %}
-                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-outline-secondary btn-sm">{{cat.name}}</button></a>
+                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-outline-secondary btn-sm-1">{{cat.name}}</button></a>
             {% endfor %}
           
         </div>
