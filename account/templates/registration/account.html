@@ -3,7 +3,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300&display=swap');
   body{
-    background-color: oldlace;
+    background-color: #eee;
   }
   .container{
     font-family: 'Overpass', sans-serif;
@@ -30,18 +30,18 @@
       padding-right: 5%;
       text-align: center;
     }
-  #username{
-    margin-top: 3%;
-    text-align: justify;
-  }
-  #email{
-    text-align: justify;
-  }
-  #bio{
-    margin-top: 6%;
-    padding-top: 6%;
-    text-align: justify;
-  } 
+    #username{
+      margin-top: 5%;
+      text-align: justify;
+    }
+    #email{
+      text-align: justify;
+    }
+    #bio{
+      margin-top: 6%;
+      padding-top: 6%;
+      text-align: justify;
+    } 
 }
 
 </style>
@@ -50,7 +50,7 @@
 {% block content %}
 <div class="container-fluid">
     <div class="container">
-      {% if user.image %}
+      {% if user.pic %}
       <img src="{{user.pic.url}}" class="rounded-circle" width="250" height="250" alt="">
       {% else %}
         <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" class="rounded-circle" width="250"

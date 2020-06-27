@@ -28,17 +28,14 @@
         <hr>
         <div class="container-fluid">    
             <div class="row">
-                <div class="col-sm-6" id="left">
-
-                    {% if user.image %}
-                    <img src="{{user.pic.url}}" width="40" height="40" class="rounded-circle" alt="">
+                <div class="col" id="left">
+                    {% if post.author.pic %}
+                        <img src="{{post.author.pic.url}}" width="50" height="50" class="rounded-circle" alt="">
                     {% else %}
-                    <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="50" height="50" class="rounded-circle" alt="">
+                        <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="50" height="50" class="rounded-circle" alt="">
                     {% endif %}
                     <strong><h6>{{post.author}}</h6></strong>
-                </div>
-                <div class="col-sm-6">
-                    <p>{{user.bio}}</p>
+                    <p>{{post.author.bio}}</p>
                 </div>
             </div>
         </div>

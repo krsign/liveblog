@@ -11,7 +11,7 @@
     {% block extra_head %}
     {% endblock %}
 </head>
-<body>
+<body class="d-flex flex-column">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <a class="navbar-brand" href="{% url 'home' %}">Techblog</a>
@@ -30,13 +30,14 @@
                 </ul>
                 <a class="navbar-brand" href="#">
                     <a href="{% url 'profile' %}">
-                        {{user.get_username}}
+                        {% if user.pic %}
+                        <img src="{{user.pic.url}}" width="30" height="30" class="rounded-circle" alt="">
+                        {% else %}
+                        <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="30" height="30"
+                            class="rounded-circle" alt="">
+                        {% endif %}
                     </a>
-                    {% if user.image %}
-                    <img src="{{user.pic.url}}" width="30" height="30" class="rounded-circle" alt="">
-                    {% else %}
-                    <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" width="30" height="30" class="rounded-circle" alt="">
-                    {% endif %}
+                    
                 </a>
                 <a class="nav-link disabled" href="{% url 'logout' %}"><button type="button" class="btn btn-outline-dark">Logout</button></a>
                 
