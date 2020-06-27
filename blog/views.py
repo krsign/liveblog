@@ -35,13 +35,13 @@ class PostListView(generic.ListView):
         context['categories'] = categories
         return context
 
-
-class PostDetailView(LoginRequiredMixin,generic.DetailView):
+# class PostDetailView(LoginRequiredMixin,generic.DetailView):
+class PostDetailView(generic.DetailView):
     model = Post
     queryset = Post.objects.filter(status='P')
     template_name = 'blog/blog-post.html'
     context_object_name = 'post'
-    login_url = reverse_lazy('login')
+    # login_url = reverse_lazy('login')
     
 
 def contact_us_form_view(request):
@@ -95,7 +95,7 @@ class PostUpdateView(LoginRequiredMixin, PermissionRequiredMixin, UserPassesTest
         
 
 
-class PostDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.DeleteView):
+class PostDeleteView(LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin, generic.DeleteView):
     permission_required = 'blog.change_post'
     login_url = reverse_lazy('login')
     model = Post
@@ -103,25 +103,9 @@ class PostDeleteView(LoginRequiredMixin, PermissionRequiredMixin, generic.Delete
     template_name = 'blog/delete.html'
     success_url = reverse_lazy('home')
 
-
-# def post_update_form_view(request, id):
-#     post = Post.objects.get(id=id)
-#     if request.method == 'GET':
-#         form = PostForm(instance=post)
-#         return render(request, 'blog/post.html', context={'form':form})
-#     else:
-#         print(request.POST)
-#         form = PostForm(request.POST, request.FILES, instance=post)
-#         if form.is_valid():
-#             form.save()
-#             return render(request, 'blog/thankyou.html')
-#         else:
-#             print(form.errors)
-#             return render(request, 'blog/post.html', context={'form':form})
-
-# def post_delete_form_view(request, id):
-#     post = Post.objects.get(id=id)
-#     if request.method == 'POST':
-#         post.delete()
-#         return redirect('home')
-#     return render(request, 'blog/delete.html' , context={'post':post})
+    def test_func(self, *args, **kwargs):
+        post = Post.objects.get(slug=self.kwargs.get('slug'))
+        if post.author == self.request.user:
+            return True
+        else:
+            return False
