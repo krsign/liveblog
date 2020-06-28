@@ -5,24 +5,30 @@
         padding-left: 5%;
         padding-right: 2%;
     }
-    /* .col{
-        padding-left: 10%;
-        padding-right: 2%;
-    }  */
+    hr{
+        margin-right: 8%;
+        margin-left: 13%;
+        
+    }
     @media only screen and (max-width: 600px) {
         .categories {
             padding-left: 7%;
         }
-         .col{
-        padding-left: 8%;
-        padding-right: 1%;
+        .col{
+            padding-left: 8%;
+            padding-right: 1%;
         } 
+        hr{
+            margin-right: 2%;
+            margin-left: 6%; 
+        }
     }
 </style>
 {% endblock %}
 {% block content %}
 
 <div class="container">
+    
     <div class="categories">
         <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm">All</button></a>
         {% for cat in categories %}
@@ -31,15 +37,9 @@
         {% endfor %}
 
     </div>
-    <form method="GET" action="">
-        <div class="col">
-            <input class="form-control" style="text-align: center;" type="text" name="q" type="text" value="{{ request.GET.q }}"
-                placeholder=" search blogs" aria-label="Search">
-          </div>
-    </form>
-
+    <hr>
     <ul class="blog-post columns-2">
-        <hr>
+     
         {% for post in posts%}
         <li>
             {% if post.image %}
