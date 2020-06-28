@@ -84,7 +84,7 @@
     }
     
     ul.blog-post.columns-2 li {
-        width: 37%;
+        width: 40%;
     }
      
 @media (max-width: 600px) {
@@ -92,8 +92,8 @@
       margin: 4em 0;
       text-align: center;
       padding-top: 30px;
-      padding-left: 3%;
-      padding-right: 10%;
+      padding-left: 1%;
+      padding-right: 7%;
 
     }
     ul.grid-nav li {

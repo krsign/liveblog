@@ -1,44 +1,59 @@
 {% extends 'blog/base.html' %}
 {% block extra_head %}
-    <style>
-        .categories{
-            padding-left: 5%;
-            padding-right: 2%;
-        }
-        @media only screen and (max-width: 600px){
-            .categories{
+<style>
+    .categories {
+        padding-left: 5%;
+        padding-right: 2%;
+    }
+    /* .col{
+        padding-left: 10%;
+        padding-right: 2%;
+    }  */
+    @media only screen and (max-width: 600px) {
+        .categories {
             padding-left: 7%;
-            
-            }
         }
-    </style>
+         .col{
+        padding-left: 8%;
+        padding-right: 1%;
+        } 
+    }
+</style>
 {% endblock %}
 {% block content %}
 
-    <div class="container">
-        <div class="categories">
-            <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm-1">All</button></a>
-            {% for cat in categories %}
-                <a href="{% url 'filter' cat.id %}"><button type="button" class="btn btn-outline-secondary btn-sm-1">{{cat.name}}</button></a>
-            {% endfor %}
-          
-        </div>
-        <ul class="blog-post columns-2">
-            <hr>
-            {% for post in posts%}
-            <li>
-                {% if post.image %}
-                <a href="{% url 'post-detail' post.slug %}"><img src="{{ post.image.url }}" alt="" /></a>
-                
-                {% else %}
-                <a href="{% url 'post-detail' post.slug %}"><img src="https://edyoda.s3.amazonaws.com/media/blog-images/devops_tJSKVcn.jpg" />
-                    {% endif %}</a>
-                <h3>{{post.title|truncatechars:45}}</h3>
-                <hr>
-                <p>{{post.content|truncatechars_html:100|safe}}</p>
-            </li>
-            {% endfor %}
-            
-        </ul>
+<div class="container">
+    <div class="categories">
+        <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-secondary btn-sm">All</button></a>
+        {% for cat in categories %}
+        <a href="{% url 'filter' cat.id %}"><button type="button"
+                class="btn btn-outline-secondary btn-sm">{{cat.name}}</button></a>
+        {% endfor %}
+
     </div>
+    <form method="GET" action="">
+        <div class="col">
+            <input class="form-control" style="text-align: center;" type="text" name="q" type="text" value="{{ request.GET.q }}"
+                placeholder=" search blogs" aria-label="Search">
+          </div>
+    </form>
+
+    <ul class="blog-post columns-2">
+        <hr>
+        {% for post in posts%}
+        <li>
+            {% if post.image %}
+            <a href="{% url 'post-detail' post.slug %}"><img src="{{ post.image.url }}" alt="" /></a>
+
+            {% else %}
+            <a href="{% url 'post-detail' post.slug %}"><img
+                    src="https://edyoda.s3.amazonaws.com/media/blog-images/devops_tJSKVcn.jpg" />
+                {% endif %}</a>
+            <h3>{{post.title|truncatechars:45}}</h3>
+            <hr>
+            <p>{{post.content|truncatechars_html:100|safe}}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

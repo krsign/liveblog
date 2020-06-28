@@ -35,7 +35,13 @@ class PostListView(generic.ListView):
         context['categories'] = categories
         return context
 
-# class PostDetailView(LoginRequiredMixin,generic.DetailView):
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        if query:
+            return Post.objects.filter(title__icontains=query)
+        else:
+            return Post.objects.all()
+    
 class PostDetailView(generic.DetailView):
     model = Post
     queryset = Post.objects.filter(status='P')
