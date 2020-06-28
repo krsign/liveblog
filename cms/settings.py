@@ -159,10 +159,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 AUTH_USER_MODEL = 'account.User'
 
 
-# blog
-#     \static
-#         \blog
-#             \images
-#                 \ a.jpg
+AUTHENTICATION_BACKENDS = [
+    'account.backends.EmailBackend',
+    'django.contrib.auth.backends.ModelBackend',
 
-#     127.0.0.1:8000/static/a.jpg
+    ]
