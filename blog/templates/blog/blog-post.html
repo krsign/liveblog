@@ -14,10 +14,16 @@
         {% else %}
             <img src="https://cdn.mos.cms.futurecdn.net/LGoEDSKPxnLjMpJv4VaEK5.jpg" class="image-detail" alt="">
         {% endif %}
+        {% if request.user == post.author %}
         <div class="update-delete">
             <a href="{% url 'update' post.slug %}"><button type="button" class="btn btn-outline-success">update</button></a>
             <a href="{% url 'delete' post.slug %}"><button type="button" class="btn btn-outline-danger">delete</button></a>
         </div>
+        {% else %}
+        <div class="update-delete">
+            
+        </div>
+        {% endif %}
         
         <hr>
         <h2 id="title">{{post.title}}</h2>
